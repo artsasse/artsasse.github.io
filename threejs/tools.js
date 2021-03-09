@@ -24,12 +24,14 @@ function createRing(inner_radius, outer_radius, segments, texture_path, type = '
     const texture = loader.load(texture_path);
     if(type == 'Phong') {
         var ring_material = new THREE.MeshPhongMaterial({
-            map: texture
+            map: texture,
+            side: THREE.DoubleSide
         });
     }
     else {
         var ring_material = new THREE.MeshBasicMaterial({
-            map: texture
+            map: texture,
+            side: THREE.DoubleSide
         });
     }
     var ring = new THREE.Mesh(ring_geom, ring_material);
