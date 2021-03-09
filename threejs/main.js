@@ -84,28 +84,6 @@ function init() {
     // Setting up scene
     scene = new THREE.Scene();
 
-    // let materialArray = [];
-    // let texture_ft = new THREE.TextureLoader().load( 'texture/bkg1_front.png');
-    // let texture_bk = new THREE.TextureLoader().load( 'texture/bkg1_back.png');
-    // let texture_up = new THREE.TextureLoader().load( 'texture/bkg1_top.png');
-    // let texture_dn = new THREE.TextureLoader().load( 'texture/bkg1_bot.png');
-    // let texture_rt = new THREE.TextureLoader().load( 'texture/bkg1_right.png');
-    // let texture_lf = new THREE.TextureLoader().load( 'texture/bkg1_left.png');
-    
-    // materialArray.push(new THREE.MeshBasicMaterial( { map: texture_ft }));
-    // materialArray.push(new THREE.MeshBasicMaterial( { map: texture_bk }));
-    // materialArray.push(new THREE.MeshBasicMaterial( { map: texture_up }));
-    // materialArray.push(new THREE.MeshBasicMaterial( { map: texture_dn }));
-    // materialArray.push(new THREE.MeshBasicMaterial( { map: texture_rt }));
-    // materialArray.push(new THREE.MeshBasicMaterial( { map: texture_lf }));
-   
-    // for (let i = 0; i < 6; i++)
-    //     materialArray[i].side = THREE.BackSide;
-    
-    // let skyboxGeo = new THREE.BoxGeometry( 10000, 10000, 10000);
-    // let skybox = new THREE.Mesh( skyboxGeo, materialArray );
-    // scene.add( skybox );
-
     var skyGeo = new THREE.SphereGeometry(5000, 50, 50);
     var loader  = new THREE.TextureLoader(),
         texture = loader.load( "texture/starmap.jpg" );
@@ -120,7 +98,7 @@ function init() {
     sun = createSphere(SUN_RADIUS, 20, 'texture/sun.jpg');
     // sun.position.z = -3;
     sun.position = SUN_CENTER;
-    sunlight = new THREE.PointLight( 0xffffffff, 1.5, 0, 2);
+    sunlight = new THREE.PointLight( 0xffffffff, 1.5, 7000, 2);
     sun.add(sunlight);
     scene.add(sun);
 
