@@ -41,7 +41,7 @@ const NEPTUNE_DISTANCE = 30.07 * EARTH_DISTANCE;
 const MOON_DISTANCE = EARTH_RADIUS * 1.5;
 
 // Angle increments per frame representing planets' rotations
-const EARTH_DAY = 0.02;
+const EARTH_DAY = 0.2;
 const MERCURY_DAY = EARTH_DAY / 58.6;
 const VENUS_DAY = EARTH_DAY / 243;
 const MARS_DAY = EARTH_DAY / 1.03;
@@ -56,9 +56,9 @@ const MERCURY_YEAR = EARTH_DAY / 87.97;
 const VENUS_YEAR = EARTH_DAY / 224.7;
 const MARS_YEAR = EARTH_YEAR / 1.88;
 const JUPITER_YEAR = EARTH_YEAR / 11.86;
-const SATURN_YEAR = EARTH_DAY / 29.46;
-const URANUS_YEAR = EARTH_DAY / 84;
-const NEPTUNE_YEAR = EARTH_DAY / 164.79;
+const SATURN_YEAR = EARTH_YEAR / 29.46;
+const URANUS_YEAR = EARTH_YEAR / 84;
+const NEPTUNE_YEAR = EARTH_YEAR / 164.79;
 
 
 // Angle increments per frame for Moon
@@ -98,7 +98,7 @@ function init() {
     sun = createSphere(SUN_RADIUS, 20, 'texture/sun.jpg');
     // sun.position.z = -3;
     sun.position = SUN_CENTER;
-    sunlight = new THREE.PointLight( 0xffffffff, 1.5, 7000, 2);
+    sunlight = new THREE.PointLight( 0xffffffff, 1.5, NEPTUNE_DISTANCE * 2, 2);
     sun.add(sunlight);
     scene.add(sun);
 
@@ -141,7 +141,7 @@ function init() {
     sun.add(saturn);
 
     // Saturn Ring
-    saturn_ring = createRing(SATURN_RADIUS * 1.1, SATURN_RADIUS * 1.3, 30, 'texture/saturn_ring_alpha.png');
+    saturn_ring = createRing(SATURN_RADIUS * 1.1, SATURN_RADIUS * 1.3, 30, 'texture/saturn_ring_alpha.png', 'Phong');
     saturn_ring.rotation.x = 80;
     saturn.add(saturn_ring);
 
